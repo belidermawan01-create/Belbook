@@ -1,0 +1,185 @@
+.buku-header,
+.produk-header-tambah,
+.buku-header-tambah {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.buku-header h3,
+.produk-header-tambah h3,
+.buku-header-tambah h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #0c447c;
+}
+
+.buku-header a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #185fa5;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.buku-header a:hover {
+  background: #0c447c;
+}
+
+.table-wrapper {
+  background: #ffffff;
+  border: 0.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  border: none;
+}
+
+.table-wrapper thead tr {
+  background: #f0f4f8;
+}
+
+.table-wrapper th {
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 500;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  border: none;
+}
+
+.table-wrapper td {
+  padding: 11px 14px;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.06);
+  color: #1a1a1a;
+  vertical-align: middle;
+}
+
+.table-wrapper tbody tr:hover {
+  background: #f7fafd;
+}
+
+.table-wrapper td img {
+  width: 64px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 0.5px solid rgba(0, 0, 0, 0.08);
+  display: block;
+}
+
+.table-wrapper td:nth-child(4) {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-edit,
+.btn-delete,
+.btn-tambah {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    transform 0.1s;
+}
+
+.btn-edit {
+  background: #e6f1fb;
+  color: #185fa5;
+  margin-right: 6px;
+}
+
+.btn-edit:hover {
+  background: #b5d4f4;
+}
+
+.btn-delete {
+  background: #fdf0f0;
+  color: #c0392b;
+}
+
+.btn-delete:hover {
+  background: #f7c1c1;
+}
+
+.btn-tambah {
+  background: #185fa5;
+  color: #ffffff;
+  min-width: 100px;
+}
+
+.btn-tambah:hover {
+  background: #0c447c;
+}
+
+.btn-tambah:disabled {
+  background: #b5d4f4;
+  cursor: not-allowed;
+}
+
+.btn-edit:active,
+.btn-delete:active,
+.btn-tambah:active {
+  transform: scale(0.97);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-page {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 500;
+  background: #ffffff;
+  color: #185fa5;
+  border: 0.5px solid #b5d4f4;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.btn-page:hover:not(:disabled) {
+  background: #185fa5;
+  color: #ffffff;
+  border-color: #185fa5;
+}
+
+.btn-page:disabled {
+  background: #185fa5;
+  color: #ffffff;
+  border-color: #185fa5;
+  cursor: default;
+}
