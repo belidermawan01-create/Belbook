@@ -6,7 +6,7 @@ import { MdDelete } from "react-icons/md";
 import { RiPencilFill } from "react-icons/ri";
 import { FaSearch } from "react-icons/fa";
 import { PiMailboxFill } from "react-icons/pi";
-
+import jokowi from "../../assets/jokowi.webp";
 const T = {
   cream:    "#F5EFE0",
   gold:     "#C9A84C",
@@ -428,7 +428,9 @@ const Buku = () => {
                       initial={{ opacity: 0, y: 16 }}
                       animate={{ opacity: 1, y: 0 }}
                     >
-                      <div style={{ fontSize: 40, marginBottom: 16 }}><PiMailboxFill/></div>
+                      <div style={{ fontSize: 40, marginBottom: 16 }}>
+                        <img style={{width:"50px"}} src={jokowi} alt="" />
+                      </div>
                       <h4 style={{
                         fontFamily: T.serif, fontWeight: 300,
                         color: T.cream, margin: "0 0 8px", fontSize: "1.3rem",

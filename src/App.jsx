@@ -19,7 +19,7 @@ function App() {
       <Route path="daftarBukuAdmin" element={<DaftarBukuAdmin />} />
       <Route path="daftarBukuAdmin/add" element={<AddBuku />} />
 
-      <Route path="dashboard" element={<DashboardLayout/>}>
+      <Route path="dashboard/" element={<DashboardLayout/>}>
       {/* Buku*/}
         <Route path="/dashboard/dashboardd" element={<Dashboard/>} />
         <Route path="/dashboard/buku" element={<Buku />} />
