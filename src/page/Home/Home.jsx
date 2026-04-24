@@ -81,7 +81,6 @@ function BookSpine({ color, title, width = 28, height = 160, delay = 0, tilt = 0
   );
 }
 
-/* ── Dust mote ── */
 function Dust({ x, y, size, delay }) {
   return (
     <motion.div
@@ -96,9 +95,6 @@ function Dust({ x, y, size, delay }) {
   );
 }
 
-/* ════════════════════════════════════════════════════
-   MAIN COMPONENT
-════════════════════════════════════════════════════ */
 const Home = () => {
   const navigate = useNavigate();
   const heroRef = useRef(null);
@@ -147,13 +143,11 @@ const Home = () => {
 
       <MyNavbar />
 
-      {/* ══════════════════════ HERO ══════════════════════ */}
       <section ref={heroRef} style={{
         minHeight: "100vh", position: "relative",
         display: "flex", alignItems: "center", overflow: "hidden",
       }}>
 
-        {/* Parallax BG */}
         <motion.div style={{ y: bgY, position: "absolute", inset: 0, pointerEvents: "none" }}>
           <div style={{
             position: "absolute", inset: 0,
@@ -161,7 +155,6 @@ const Home = () => {
               `radial-gradient(ellipse 70% 60% at 62% 50%, rgba(30,77,43,0.22) 0%, transparent 70%),
                radial-gradient(ellipse 40% 40% at 18% 30%, rgba(201,168,76,0.07) 0%, transparent 60%)`,
           }} />
-          {/* Grid lines */}
           <div style={{
             position: "absolute", inset: 0, opacity: 1,
             backgroundImage:
@@ -169,7 +162,6 @@ const Home = () => {
                linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px)`,
             backgroundSize: "80px 80px",
           }} />
-          {/* Grain */}
           <div style={{
             position: "absolute", inset: 0, opacity: 0.035,
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
@@ -177,10 +169,8 @@ const Home = () => {
           }} />
         </motion.div>
 
-        {/* Dust motes */}
         {dusts.map((d, i) => <Dust key={i} {...d} />)}
 
-        {/* Decorative large ring */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.5, delay: 0.4, ease: "easeOut" }}
@@ -204,7 +194,6 @@ const Home = () => {
           }}
         />
 
-        {/* MAIN CONTENT */}
         <motion.div
           style={{
             y: txtY, opacity: fade,
@@ -219,10 +208,8 @@ const Home = () => {
           }}
         >
 
-          {/* ─── LEFT ─── */}
           <div>
 
-            {/* Overline */}
             <motion.div
               initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -238,7 +225,6 @@ const Home = () => {
               </span>
             </motion.div>
 
-            {/* Headline — 3 lines animated */}
             {[
               { text: "Dunia Tanpa",  italic: false, outlined: false, delay: 0.35 },
               { text: "Batas",        italic: true,  outlined: true,  delay: 0.5  },
@@ -264,7 +250,6 @@ const Home = () => {
               </div>
             ))}
 
-            {/* Body */}
             <motion.p
               initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.9 }}
@@ -279,7 +264,6 @@ const Home = () => {
               kapan pun dan di mana pun.
             </motion.p>
 
-            {/* Genre tags */}
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }}
               transition={{ delay: 1.05 }}
@@ -310,7 +294,6 @@ const Home = () => {
               ))}
             </motion.div>
 
-            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2 }}
@@ -366,7 +349,6 @@ const Home = () => {
 
           </div>
 
-          {/* ─── RIGHT: Bookshelf ─── */}
           <div>
 
             <motion.div
@@ -388,7 +370,6 @@ const Home = () => {
               </motion.span>
             </motion.div>
 
-            {/* Shelf box */}
             <motion.div
               initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -401,7 +382,6 @@ const Home = () => {
                 overflow: "hidden",
               }}
             >
-              {/* Top glow */}
               <div style={{
                 position: "absolute", top: -1, left: "20%", right: "20%",
                 height: 2,
@@ -414,7 +394,6 @@ const Home = () => {
                 pointerEvents: "none",
               }} />
 
-              {/* Books */}
               <div style={{
                 display: "flex", alignItems: "flex-end", gap: 5,
                 justifyContent: "center", position: "relative", zIndex: 1,
@@ -424,7 +403,6 @@ const Home = () => {
                 ))}
               </div>
 
-              {/* Shelf plank */}
               <div style={{
                 height: 14, marginTop: -1,
                 background: "linear-gradient(180deg, #3A2E1E 0%, #2A200E 100%)",
@@ -433,7 +411,6 @@ const Home = () => {
                 position: "relative", zIndex: 2,
               }} />
 
-              {/* Stats */}
               <div style={{
                 display: "flex", justifyContent: "space-between",
                 padding: "20px 8px 24px",
@@ -466,7 +443,6 @@ const Home = () => {
               </div>
             </motion.div>
 
-            {/* Floating quote card */}
             <motion.div
               initial={{ opacity: 0, y: 24, rotate: -2 }}
               animate={{ opacity: 1, y: 0, rotate: -2 }}
@@ -505,7 +481,6 @@ const Home = () => {
 
         </motion.div>
 
-        {/* Scroll line */}
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           transition={{ delay: 2.6 }}
@@ -531,7 +506,6 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* ══════════════════════ MARQUEE ══════════════════════ */}
       <div style={{
         borderTop:    "1px solid rgba(201,168,76,0.12)",
         borderBottom: "1px solid rgba(201,168,76,0.12)",
@@ -562,7 +536,6 @@ const Home = () => {
         </motion.div>
       </div>
 
-      {/* ══════════════════════ FEATURES ══════════════════════ */}
       <section style={{
         padding:   "100px clamp(24px, 6vw, 100px)",
         maxWidth:  1320,
@@ -631,7 +604,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══════════════════════ CTA BAND ══════════════════════ */}
       <section style={{
         margin:     "0 clamp(24px, 6vw, 100px) 100px",
         background: `linear-gradient(135deg, ${T.green} 0%, #0A2E16 100%)`,

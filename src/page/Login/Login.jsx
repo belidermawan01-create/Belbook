@@ -9,6 +9,7 @@ import { PiEyeClosedFill } from "react-icons/pi";
 import { GoEyeClosed } from "react-icons/go";
 import Logo from "../../assets/Logooo.png";
 import { AiOutlineLoading } from "react-icons/ai";
+import { IoIosWarning } from "react-icons/io";
 
 const T = {
   cream:    "#F5EFE0",
@@ -60,9 +61,6 @@ const Dust = ({ x, y, size, delay }) => (
   />
 );
 
-/* ════════════════════════════════════════
-   MAIN COMPONENT
-════════════════════════════════════════ */
 export default function Login() {
   const [username,  setUsername]  = useState("");
   const [password,  setPassword]  = useState("");
@@ -72,7 +70,6 @@ export default function Login() {
   const [focusedField, setFocusedField] = useState(null);
   const navigate = useNavigate();
 
-  /* Auto-redirect if already logged in */
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -129,7 +126,6 @@ export default function Login() {
       fontFamily: T.sans,
     }}>
 
-      {/* ── Background grid ── */}
       <div style={{
         position: "absolute", inset: 0,
         backgroundImage:
@@ -139,7 +135,6 @@ export default function Login() {
         pointerEvents: "none",
       }} />
 
-      {/* ── Radial glow ── */}
       <div style={{
         position: "absolute", inset: 0,
         background:
@@ -148,13 +143,10 @@ export default function Login() {
         pointerEvents: "none",
       }} />
 
-      {/* ── Dust motes ── */}
       {dusts.map((d, i) => <Dust key={i} {...d} />)}
 
-      {/* ── Floating book spines (bottom decoration) ── */}
       {spines.map((s, i) => <FloatingSpine key={i} {...s} />)}
 
-      {/* ── Shelf plank at bottom ── */}
       <motion.div
         initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
         transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -168,7 +160,6 @@ export default function Login() {
         }}
       />
 
-      {/* ════════════════ LOGIN CARD ════════════════ */}
       <motion.div
         initial={{ opacity: 0, y: 40, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -187,7 +178,6 @@ export default function Login() {
           overflow:     "hidden",
         }}
       >
-        {/* Top gold glow line */}
         <div style={{
           position: "absolute", top: -1, left: "20%", right: "20%",
           height: 2,
@@ -200,7 +190,6 @@ export default function Login() {
           pointerEvents: "none",
         }} />
 
-        {/* ── Logo / Brand ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -256,7 +245,6 @@ export default function Login() {
           </motion.p>
         </motion.div>
 
-        {/* ── Divider ── */}
         <motion.div
           initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
           transition={{ delay: 0.9, duration: 0.6 }}
@@ -266,7 +254,6 @@ export default function Login() {
           }}
         />
 
-        {/* ── Form ── */}
         <motion.form
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -274,7 +261,6 @@ export default function Login() {
           onSubmit={handleSubmit}
           style={{ display: "flex", flexDirection: "column", gap: 20 }}
         >
-          {/* Username */}
           <div>
             <label style={{
               display: "block",
@@ -319,7 +305,6 @@ export default function Login() {
             </div>
           </div>
 
-          {/* Password */}
           <div>
             <label style={{
               display: "block",
@@ -361,7 +346,6 @@ export default function Login() {
                   transition: "border-color 0.25s ease",
                 }}
               />
-              {/* Toggle show/hide password */}
               <button
                 type="button"
                 onClick={() => setShowPass(!showPass)}
@@ -380,7 +364,6 @@ export default function Login() {
             </div>
           </div>
 
-          {/* Error message */}
           <AnimatePresence>
             {error && (
               <motion.div
@@ -401,12 +384,11 @@ export default function Login() {
                   gap: 8,
                 }}
               >
-                <span>⚠️</span> {error}
+                <span><IoIosWarning/></span> {error}
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* Submit button */}
           <motion.button
             whileHover={{ scale: 1.03, boxShadow: `0 0 42px rgba(201,168,76,0.35)` }}
             whileTap={{ scale: 0.97 }}
@@ -450,7 +432,6 @@ export default function Login() {
           </motion.button>
         </motion.form>
 
-        {/* ── Footer note ── */}
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
@@ -471,7 +452,6 @@ export default function Login() {
         </motion.p>
       </motion.div>
 
-      {/* Inline style overrides */}
       <style>{`
         input::placeholder { color: ${T.muted}; opacity: 0.7; }
         input:-webkit-autofill {

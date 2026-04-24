@@ -9,10 +9,6 @@ import axios from "axios";
 import Footer from "../../components/Footer/Footer";
 import { FaBookOpen, FaChartLine, FaStar} from "react-icons/fa";
 import { FiRefreshCcw } from "react-icons/fi";
-/*
-  Selaras dengan Home.jsx, Navbar, DaftarBuku, Login, Sidebar
-  Dark Luxury Library theme — token warna & font identik.
-*/
 
 const T = {
   cream:    "#F5EFE0",
@@ -27,7 +23,6 @@ const T = {
   sans:     "'DM Sans', sans-serif",
 };
 
-/* ── Stat card ── */
 const StatCard = ({ icon, label, value, sub, delay, accent }) => (
   <motion.div
     initial={{ opacity: 0, y: 28 }}
@@ -44,7 +39,6 @@ const StatCard = ({ icon, label, value, sub, delay, accent }) => (
       transition:   "border-color 0.3s ease",
     }}
   >
-    {/* Corner glow */}
     <div style={{
       position:   "absolute", top: -30, right: -30,
       width:      100, height: 100, borderRadius: "50%",
@@ -79,7 +73,6 @@ const StatCard = ({ icon, label, value, sub, delay, accent }) => (
   </motion.div>
 );
 
-/* ── Custom tooltip for chart ── */
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
   return (
@@ -100,9 +93,6 @@ const CustomTooltip = ({ active, payload, label }) => {
   );
 };
 
-/* ════════════════════════════════════════
-   MAIN COMPONENT
-════════════════════════════════════════ */
 const Dashboard = () => {
   const navigate = useNavigate();
   const [buku, setBuku] = useState([]);
@@ -121,7 +111,6 @@ const Dashboard = () => {
     }
   };
 
-  /* 7-day chart data */
   const grafikData = useMemo(() => {
     const today = new Date();
     return Array.from({ length: 7 }, (_, i) => {
@@ -176,19 +165,16 @@ const Dashboard = () => {
       overflowX:   "hidden",
     }}>
 
-      {/* ════════ PAGE HEADER ════════ */}
       <div style={{
         padding:    "40px clamp(24px, 4vw, 56px) 0",
         position:   "relative",
       }}>
-        {/* Background glow */}
         <div style={{
           position:      "absolute", top: 0, left: 0, right: 0, height: 260,
           background:    "radial-gradient(ellipse 70% 80% at 30% 0%, rgba(30,77,43,0.16) 0%, transparent 70%)",
           pointerEvents: "none",
         }} />
 
-        {/* Overline */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -203,7 +189,6 @@ const Dashboard = () => {
           }}>Admin Panel</span>
         </motion.div>
 
-        {/* Title */}
         <div style={{ overflow: "hidden", marginBottom: 6, position: "relative" }}>
           <motion.h1
             initial={{ y: "100%" }} animate={{ y: 0 }}
@@ -236,7 +221,6 @@ const Dashboard = () => {
           })}
         </motion.p>
 
-        {/* Gold divider */}
         <motion.div
           initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
@@ -249,7 +233,6 @@ const Dashboard = () => {
 
       <div style={{ padding: "0 clamp(24px, 4vw, 56px) 60px" }}>
 
-        {/* ════════ STAT CARDS ════════ */}
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
@@ -258,7 +241,6 @@ const Dashboard = () => {
           {stats.map((s, i) => <StatCard key={i} {...s} />)}
         </div>
 
-        {/* ════════ CHART CARD ════════ */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -273,7 +255,6 @@ const Dashboard = () => {
             overflow:     "hidden",
           }}
         >
-          {/* Top glow rule */}
           <div style={{
             position:   "absolute", top: -1, left: "20%", right: "20%",
             height:     2,
@@ -286,7 +267,6 @@ const Dashboard = () => {
             pointerEvents: "none",
           }} />
 
-          {/* Chart header */}
           <div style={{
             display:       "flex",
             justifyContent:"space-between",
@@ -311,7 +291,6 @@ const Dashboard = () => {
               </h3>
             </div>
 
-            {/* Total badge */}
             <div style={{
               background:   "rgba(201,168,76,0.08)",
               border:       "1px solid rgba(201,168,76,0.2)",
@@ -338,7 +317,6 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Chart */}
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={grafikData} barSize={32}>
               <defs>
@@ -375,7 +353,6 @@ const Dashboard = () => {
           </ResponsiveContainer>
         </motion.div>
 
-        {/* ════════ ACTION ROW ════════ */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

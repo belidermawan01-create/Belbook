@@ -38,7 +38,7 @@ const EditBuku = () => {
     const res = await axios.get(`/buku/cari/${id}`);
     const data = res.data.data;
 
-    console.log("DATA BUKU:", data); // 🔍 cek ini
+    console.log("DATA BUKU:", data); 
 
     setNamaBuku(data.judul_buku || "");
     setDeskripsi(data.deskripsi || "");

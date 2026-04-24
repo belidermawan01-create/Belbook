@@ -18,7 +18,6 @@ const T = {
   sans:     "'DM Sans', sans-serif",
 };
 
-/* ── Star rating renderer ── */
 const Stars = ({ count = 4 }) => (
   <span style={{ letterSpacing: 1 }}>
     {Array.from({ length: 5 }, (_, i) => (
@@ -27,7 +26,6 @@ const Stars = ({ count = 4 }) => (
   </span>
 );
 
-/* ── Skeleton card while loading ── */
 const SkeletonCard = ({ delay }) => (
   <motion.div
     initial={{ opacity: 0 }} animate={{ opacity: 1 }}
@@ -59,9 +57,6 @@ const SkeletonCard = ({ delay }) => (
   </motion.div>
 );
 
-/* ════════════════════════════════════════
-   MAIN COMPONENT
-════════════════════════════════════════ */
 const DaftarBuku = () => {
   const navigate = useNavigate();
   const [buku,       setBuku]       = useState([]);
@@ -109,20 +104,17 @@ const DaftarBuku = () => {
     }}>
       <MyNavbar />
 
-      {/* ══════════════════ PAGE HEADER ══════════════════ */}
       <section style={{
         padding: "72px clamp(24px,6vw,100px) 56px",
         maxWidth: 1320, margin: "0 auto",
         position: "relative",
       }}>
-        {/* Background glow */}
         <div style={{
           position: "absolute", top: 0, left: 0, right: 0, height: 300,
           background: "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(30,77,43,0.18) 0%, transparent 70%)",
           pointerEvents: "none",
         }} />
 
-        {/* Overline */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -137,7 +129,6 @@ const DaftarBuku = () => {
           }}>Koleksi Perpustakaan</span>
         </motion.div>
 
-        {/* Title */}
         <div style={{ overflow: "hidden", marginBottom: 8 }}>
           <motion.h1
             initial={{ y: "100%" }} animate={{ y: 0 }}
@@ -175,7 +166,6 @@ const DaftarBuku = () => {
                     </button>
 
 
-        {/* Search + filter row */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -185,7 +175,6 @@ const DaftarBuku = () => {
             alignItems: "center",
           }}
         >
-          {/* Search box */}
           <div style={{ position: "relative", flexGrow: 1, maxWidth: 380 }}>
             <span style={{
               position: "absolute", left: 16, top: "50%",
@@ -213,7 +202,6 @@ const DaftarBuku = () => {
             />
           </div>
 
-          {/* Genre filter pills */}
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
             {genres.map((g) => (
               <motion.button
@@ -235,7 +223,6 @@ const DaftarBuku = () => {
           </div>
         </motion.div>
 
-        {/* Result count */}
         {!loading && (
           <motion.p
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
@@ -252,13 +239,11 @@ const DaftarBuku = () => {
         )}
       </section>
 
-      {/* ══════════════════ BOOK GRID ══════════════════ */}
       <section style={{
         padding: "0 clamp(24px,6vw,100px) 100px",
         maxWidth: 1320, margin: "0 auto",
       }}>
 
-        {/* Thin gold divider */}
         <div style={{
           height: 1, marginBottom: 48,
           background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent)",
@@ -270,12 +255,10 @@ const DaftarBuku = () => {
           gap: 28,
         }}>
 
-          {/* Loading skeletons */}
           {loading && Array.from({ length: 12 }, (_, i) => (
             <SkeletonCard key={i} delay={i * 0.05} />
           ))}
 
-          {/* Book cards */}
           <AnimatePresence>
             {!loading && filtered.map((book, i) => (
               <motion.div
@@ -298,7 +281,6 @@ const DaftarBuku = () => {
                   flexDirection:"column",
                 }}
               >
-                {/* Cover image */}
                 <div style={{
                   position: "relative", overflow: "hidden",
                   height: 220, flexShrink: 0,
@@ -319,7 +301,6 @@ const DaftarBuku = () => {
                     }}
                   />
 
-                  {/* Hover overlay */}
                   <motion.div
                     animate={{ opacity: hoveredId === book.id ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
@@ -356,7 +337,6 @@ const DaftarBuku = () => {
                     </motion.button>
                   </motion.div>
 
-                  {/* Badge */}
                   <div style={{
                     position:   "absolute", top: 10, right: 10,
                     background: "rgba(14,11,7,0.75)",
@@ -370,7 +350,6 @@ const DaftarBuku = () => {
                   </div>
                 </div>
 
-                {/* Info */}
                 <div style={{ padding: "14px 16px 18px", flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div>
                     <h3 style={{
@@ -401,7 +380,6 @@ const DaftarBuku = () => {
                     alignItems: "center",
                   }}>
                     <Stars count={4} />
-                    {/* Mobile pinjam button (visible when not hovering on desktop) */}
                     <button
                       className="pinjam-mobile-btn"
                       onClick={() => navigate("/peminjaman", { state: book })}
@@ -427,7 +405,6 @@ const DaftarBuku = () => {
           </AnimatePresence>
         </div>
 
-        {/* Empty state */}
         {!loading && filtered.length === 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}

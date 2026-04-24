@@ -239,13 +239,11 @@ const DaftarBuku = () => {
         )}
       </section>
 
-      {/* ══════════════════ BOOK GRID ══════════════════ */}
       <section style={{
         padding: "0 clamp(24px,6vw,100px) 100px",
         maxWidth: 1320, margin: "0 auto",
       }}>
 
-        {/* Thin gold divider */}
         <div style={{
           height: 1, marginBottom: 48,
           background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent)",
@@ -257,12 +255,10 @@ const DaftarBuku = () => {
           gap: 28,
         }}>
 
-          {/* Loading skeletons */}
           {loading && Array.from({ length: 12 }, (_, i) => (
             <SkeletonCard key={i} delay={i * 0.05} />
           ))}
 
-          {/* Book cards */}
           <AnimatePresence>
             {!loading && filtered.map((book, i) => (
               <motion.div
@@ -285,7 +281,6 @@ const DaftarBuku = () => {
                   flexDirection:"column",
                 }}
               >
-                {/* Cover image */}
                 <div style={{
                   position: "relative", overflow: "hidden",
                   height: 220, flexShrink: 0,
@@ -306,7 +301,6 @@ const DaftarBuku = () => {
                     }}
                   />
 
-                  {/* Hover overlay */}
                   <motion.div
                     animate={{ opacity: hoveredId === book.id ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
@@ -343,7 +337,6 @@ const DaftarBuku = () => {
                     </motion.button>
                   </motion.div>
 
-                  {/* Badge */}
                   <div style={{
                     position:   "absolute", top: 10, right: 10,
                     background: "rgba(14,11,7,0.75)",
@@ -357,7 +350,6 @@ const DaftarBuku = () => {
                   </div>
                 </div>
 
-                {/* Info */}
                 <div style={{ padding: "14px 16px 18px", flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div>
                     <h3 style={{
@@ -388,7 +380,6 @@ const DaftarBuku = () => {
                     alignItems: "center",
                   }}>
                     <Stars count={4} />
-                    {/* Mobile pinjam button (visible when not hovering on desktop) */}
                     <button
                       className="pinjam-mobile-btn"
                       onClick={() => navigate("/peminjaman", { state: book })}
@@ -414,7 +405,6 @@ const DaftarBuku = () => {
           </AnimatePresence>
         </div>
 
-        {/* Empty state */}
         {!loading && filtered.length === 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
