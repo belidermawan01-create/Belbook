@@ -82,7 +82,7 @@ export default function Login() {
     setError("");
     setLoading(true);
     try {
-      const response = await axios.post("https://petikbook.petik.or.id/api/login", (data));
+      const response = await axios.post("https://petikbook.petik.or.id/api/login", { username, password });
       const token    = response.data.data.token;
       const decoded  = jwtDecode(token);
       localStorage.setItem("token", token);
