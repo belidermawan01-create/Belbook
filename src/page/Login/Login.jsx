@@ -3,12 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
-import { RiAdminFill } from "react-icons/ri";
 import { FaEye, FaHourglassEnd, FaLock, FaUser } from "react-icons/fa";
-import { PiEyeClosedFill } from "react-icons/pi";
 import { GoEyeClosed } from "react-icons/go";
 import Logo from "../../assets/Logooo.png";
-import { AiOutlineLoading } from "react-icons/ai";
 import { IoIosWarning } from "react-icons/io";
 
 const T = {

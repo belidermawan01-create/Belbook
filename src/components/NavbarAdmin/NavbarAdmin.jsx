@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from "react";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaUser } from "react-icons/fa";
 
 const T = {
   cream:    "#F5EFE0",

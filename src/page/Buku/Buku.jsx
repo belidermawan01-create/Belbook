@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MdDelete } from "react-icons/md";
 import { RiPencilFill } from "react-icons/ri";
 import { FaSearch } from "react-icons/fa";
-import { PiMailboxFill } from "react-icons/pi";
 import jokowi from "../../assets/jokowi.webp";
 const T = {
   cream:    "#F5EFE0",

@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import addProductt from "../../assets/monyet.png";
 
 const AddBukuu = () => {
   const navigate = useNavigate();
