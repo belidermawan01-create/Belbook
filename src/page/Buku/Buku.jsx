@@ -429,7 +429,7 @@ const Buku = () => {
                       animate={{ opacity: 1, y: 0 }}
                     >
                       <div style={{ fontSize: 40, marginBottom: 16 }}>
-                        <img style={{width:"50px"}} src={jokowi} alt="" />
+                        <img style={{width:"90px"}} src={jokowi} alt="" />
                       </div>
                       <h4 style={{
                         fontFamily: T.serif, fontWeight: 300,
